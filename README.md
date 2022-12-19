@@ -1,11 +1,25 @@
-This is a [Giter8][g8] template for Scala.
+This is a [Giter8][g8] template for zio-spark.
 
+
+You can use Gitter 8 to create an example application, with all the dependencies.
+
+For Scala 2.13
+```bash
+sbt new univalence/zio-spark.g8
+``` 
+
+For Scala 3
+```bash
+sbt new univalence/zio-spark.g8 --useScala3=true
 ```
-sbt new scala/scala-seed.g8
-```
+
+
 
 Template license
 ----------------
+
+TODO : Update license
+
 Written in 2016-2021 by Lightbend, Inc.
 
 To the extent possible under law, the author(s) have dedicated all copyright and related

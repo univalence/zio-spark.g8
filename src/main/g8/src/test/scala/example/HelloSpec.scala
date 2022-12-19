@@ -1,10 +1,14 @@
 package example
 
-import org.scalatest.flatspec.AnyFlatSpec
-import org.scalatest.matchers.should.Matchers
+import zio.test._
 
-class HelloSpec extends AnyFlatSpec with Matchers {
-  "The Hello object" should "say hello" in {
-    Hello.greeting shouldEqual "hello"
-  }
+
+object HelloWorldSpec extends ZIOSpecDefault {
+  def spec =
+    suite("HelloWorldSpec")(
+      test("sayHello") {
+        val h = "hello"
+        assertTrue(h == "hello")
+      }
+    )
 }
