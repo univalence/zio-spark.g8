@@ -13,6 +13,7 @@ ThisBuild / organizationName := "example"
 lazy val root = (project in file("."))
   .settings(
     name := "$name$",
+    testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework"),
 $if(useScala3.truthy)$
     libraryDependencies ++= Seq(
       "dev.zio" %% "zio" % "2.0.5",
