@@ -4,14 +4,15 @@ import zio._
 import zio.spark.parameter._
 import zio.spark.sql._
 import zio.spark.sql.implicits._
+$if(useScala3.truthy)$
+import scala3encoders.given
+$endif$
 
 final case class Person(name: String, age: Int)
 
 object SimpleApp extends ZIOAppDefault {
   //force throwing exeptions from analysis, like missing columns, invalid sql, ...
   import zio.spark.sql.TryAnalysis.syntax.throwAnalysisException
-
-
 
 
   def read: SIO[DataFrame] =

@@ -13,7 +13,11 @@ object HelloWorldSpec extends ZIOSpecDefault {
       },
 
       test("smokeRun") {
-        SimpleApp.provide(ZIOAppArgs(Chunk.empty))
+        val app= SimpleApp.run.provideEnvironment(
+          ZEnvironment(ZIOAppArgs(Chunk.empty))
+        )
+
+        assertZIO(app.unit)(Assertion.isUnit)
       }
     )
 }
