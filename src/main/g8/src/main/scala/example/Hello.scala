@@ -16,9 +16,10 @@ object SimpleApp extends ZIOAppDefault {
 
 
   def read: SIO[DataFrame] =
-    SparkSession.read.schema[Person].withHeader.withDelimiter(";").csv(
-      getClass.getResource("data.csv").getPath
-    )
+    SparkSession.read.schema[Person]
+      .withHeader
+      .withDelimiter(";")
+      .csv("./src/main/resources/data.csv")
 
   def job(inputDs: DataFrame) = inputDs.as[Person].headOption
 
